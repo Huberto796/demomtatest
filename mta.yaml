@@ -1,0 +1,90 @@
+_schema-version: "3.2"
+ID: demomtatest
+description: Test de aplicacion MTA
+version: 0.0.2
+modules:
+- name: demomtatest-router
+  type: approuter.nodejs
+  path: router
+  requires:
+  - name: demomtatest-html5-repo-runtime
+  - name: demomtatest-uaa
+  - name: demomtatest-destination-service
+    group: destinations
+    properties:
+      forwardAuthToken: false
+      name: ui5
+      url: https://ui5.sap.com
+  parameters:
+    disk-quota: 256M
+    memory: 256M
+- name: demomtatest-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: demomtatest-repo-host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - commxgsfiorutest.zip
+      name: commxgsfiorutest
+      target-path: resources/
+- name: commxgsfiorutest
+  type: html5
+  path: fiorutest
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: demomtatest-uaa
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      tenant-mode: dedicated
+      xsappname: demomtatest-${space-guid}
+    service: xsuaa
+    service-plan: application
+- name: demomtatest-html5-repo-runtime
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-runtime
+- name: demomtatest-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: false
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: demomtatest-destination-service
+    service-plan: lite
+- name: demomtatest-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: demomtatest-html5-srv
+    service-plan: app-host
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npm install

@@ -1,0 +1,17 @@
+<mvc:View 
+    controllerName="com.mx.gs.fiorutest.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" 
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Carousel id="carr" class="sapUiContentPadding" loop="true" width="80%" height="40%">
+		        <Image id="_IDGenImage1" src="imgs/grupoSalinas.jpg" alt="Grupo Salinas" />
+		        <Image id="_IDGenImage2" src="imgs/fieldglass.png" alt="Fieldglass" />
+		        <Image id="_IDGenImage3" src="imgs/successfactors.png" alt="Successfactors" />
+		        
+	        </Carousel>
+        </content>
+    </Page>
+</mvc:View>
