@@ -2,8 +2,8 @@
 general:
   buildTool: "mta"     
 
-service: 
-  buildToolVersion: "MBTJ11N14"         
+#service: 
+#  buildToolVersion: "MBTJ11N14"         
 
 # Stages configuration
 stages:
