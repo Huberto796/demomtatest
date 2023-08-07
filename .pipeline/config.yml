@@ -35,6 +35,7 @@ stages:
     cfApiEndpoint: "https://api.cf.us10-001.hana.ondemand.com" # for example, https://api.cf.eu10.hana.ondemand.com
     cfOrg: "50843294trial"
     cfSpace: "dev"
+    cfAppName: "demomtatest-router"
     cfCredentialsId: "cfdeploytest"
     deployType: "standard"
     tmsUpload: true                       # true if you want to upload your artifact to SAP Cloud Transport Management. If you set this parameter to true, the tmsUpload step is mandatory
