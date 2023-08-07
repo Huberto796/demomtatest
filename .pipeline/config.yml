@@ -72,5 +72,5 @@ stages:
     mtaDeployParameters: "-f --version-rule ALL"
 
   tmsUpload:                                                                               # only relevant, if you set the tmsUpload parameter in the Release stage to true
-    nodeName: "<NAME OF THE NODE FOR THE UPLOAD TO SAP CLOUD TRANSPORT MANAGEMENT>"
-    credentialsId: "<ID OF YOUR CREDENTIAL TO AUTHENTICATE AGAINST SAP CLOUD TRANSPORT MANAGEMENT>"
+    nodeName: "tmsqa"
+    credentialsId: "tmshso-key"
