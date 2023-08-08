@@ -10,7 +10,6 @@
 		        <Image id="_IDGenImage1" src="imgs/grupoSalinas.jpg" alt="Grupo Salinas" />
 		        <Image id="_IDGenImage2" src="imgs/fieldglass.png" alt="Fieldglass" />
 		        <Image id="_IDGenImage3" src="imgs/successfactors.png" alt="Successfactors" />
-		        
 	        </Carousel>
         </content>
     </Page>
