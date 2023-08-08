@@ -37,7 +37,7 @@ stages:
     cfSpace: "dev"
     cfAppName: "demomtatest-router"
     cfCredentialsId: "cfdeploytest"
-    deployType: "standard"
+    #deployType: "standard"
     tmsUpload: true                       # true if you want to upload your artifact to SAP Cloud Transport Management. If you set this parameter to true, the tmsUpload step is mandatory
     verbose: true
 
