@@ -76,3 +76,4 @@ stages:
   tmsUpload:                                                                               # only relevant, if you set the tmsUpload parameter in the Release stage to true
     nodeName: "qa"
     credentialsId: "tmshso-key"
+    mtaVersion: "*" 
