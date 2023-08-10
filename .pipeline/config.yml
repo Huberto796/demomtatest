@@ -31,3 +31,4 @@ steps:
   tmsUpload:
     nodeName: "qa"
     credentialsId: "tmshso-key"
+    mtaVersion: "*"
