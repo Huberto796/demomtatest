@@ -12,5 +12,6 @@
 		        <Image id="_IDGenImage3" src="imgs/successfactors.png" alt="Successfactors" />
 	        </Carousel>
         </content>
+        
     </Page>
 </mvc:View>
